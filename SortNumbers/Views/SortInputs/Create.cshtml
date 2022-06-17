@@ -1,0 +1,51 @@
+﻿@model SortNumbers.Models.SortInput
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SortInput</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Numbers" class="control-label">Enter integers seperated by a comma.</label>
+                <input asp-for="Numbers" class="form-control" />
+                <span asp-validation-for="Numbers" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <label asp-for="OrderedNumbers" class="control-label"></label>
+                <input asp-for="OrderedNumbers" class="form-control" />
+                <span asp-validation-for="OrderedNumbers" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="OrderAscending" for="OrderAscending" class="control-label">Choose what order you want to sort your numbers:</label>
+                <select asp-for="OrderAscending" name="OrderAscending" id="OrderAscending">
+                  <option value="ascending">Ascending</option>
+                  <option value="descending">Descending</option>
+                </select> 
+                <span asp-validation-for="OrderAscending" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <label asp-for="TimeToOrder" class="control-label"></label>
+                <input asp-for="TimeToOrder" class="form-control" />
+                <span asp-validation-for="TimeToOrder" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
