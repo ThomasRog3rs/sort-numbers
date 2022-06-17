@@ -4,6 +4,7 @@ This application allows users to input random numbers then will order them for t
 ## Assumptions
 - The JSON export does not need to automatically download in the browser
 - I am considering if the form submits to the database and shows the record on the SortInputs index as telling the user it was successful
+- I assume that I can use Methods built into the C# language, specifically LINQ to order numbers.
 
 ## Deployment - Azure
 1.  Create a resource group for the project
