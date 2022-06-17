@@ -68,7 +68,7 @@ namespace SortNumbers.Controllers
                 //stop the timer
                 timer.Stop();
                 //set the TimeToOrder
-                sortInput.TimeToOrder = $"{timer.ElapsedMilliseconds} ms";
+                sortInput.TimeToOrder = $"{timer.Elapsed.ToString()} ms"; //I have changed this from timer.ElapsedMilliseconds so that it is more accrurate
             }
             else //if not vailid, tell the user why
             {
