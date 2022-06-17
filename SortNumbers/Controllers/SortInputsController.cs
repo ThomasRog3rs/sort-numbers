@@ -128,7 +128,7 @@ namespace SortNumbers.Controllers
                 sortInputList.Add(row);
             }
 
-            //Convert the list and output the data
+            //Convert the list to json and output the data
             string output = JsonConvert.SerializeObject(sortInputList);
 
             return output;
