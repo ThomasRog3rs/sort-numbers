@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SortNumbers.Data;
 using SortNumbers.Helpers;
 using SortNumbers.Models;
@@ -111,6 +112,22 @@ namespace SortNumbers.Controllers
             _context.SortInput.Remove(sortInput);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: SortInputs/Export
+        public string Export()
+        {
+            var data = _context.SortInput;
+            int count = data.Count();
+            List<SortInput> sortInputList = new List<SortInput>();
+            foreach(SortInput row in data)
+            {
+                sortInputList.Add(row);
+            }
+
+            string output = JsonConvert.SerializeObject(sortInputList);
+
+            return output;
         }
 
         private bool SortInputExists(int id)

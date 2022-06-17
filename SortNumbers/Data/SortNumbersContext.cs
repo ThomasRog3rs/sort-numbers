@@ -9,6 +9,10 @@ namespace SortNumbers.Data
 {
     public class SortNumbersContext : DbContext
     {
+        //public SortNumbersContext()
+        //{
+        //}
+
         public SortNumbersContext (DbContextOptions<SortNumbersContext> options)
             : base(options)
         {
