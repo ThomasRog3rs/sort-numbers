@@ -29,14 +29,15 @@ namespace SortNumbers.Helpers
 
         public static string SortNumbers(string order, string numbers)
         {
-            // List<string> numbersArray = numbers.Split(",").ToList();
             List<int> numbersList = new List<int>();
 
+            //Add each number to the numbers list, no need to validate because this method only runs once they are known to be valid numbers
             foreach (string number in numbers.Split(","))
             {
                 numbersList.Add(Int32.Parse(number));
             }
 
+            //Order the list depending on user input
             List<int> orderdNumbers = new List<int>();
             if (order == "ascending")
             {
@@ -47,13 +48,14 @@ namespace SortNumbers.Helpers
                 orderdNumbers = numbersList.OrderByDescending(x => x).ToList();
             }
 
+            //set the new order to a string
             string output = "";
             foreach(int number in orderdNumbers)
             {
                 output += number + ",";
             }
 
-            return output.Remove(output.Length - 1, 1);
+            return output.Remove(output.Length - 1, 1); //remove the trailing comma
         }
     }
 }

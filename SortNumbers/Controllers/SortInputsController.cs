@@ -70,7 +70,7 @@ namespace SortNumbers.Controllers
                 //set the TimeToOrder
                 sortInput.TimeToOrder = $"{timer.ElapsedMilliseconds} ms";
             }
-            else
+            else //if not vailid, tell the user why
             {
                 ModelState.AddModelError("Numbers", "Please add your numbers and make sure they are sperated with a comma. Only integers are allowed");
             }
@@ -115,16 +115,20 @@ namespace SortNumbers.Controllers
         }
 
         // GET: SortInputs/Export
+        //This transforms the rows from the data to a json array
         public string Export()
         {
+            //Gather data using EFC
             var data = _context.SortInput;
-            int count = data.Count();
+
+            //add the rows to a new list
             List<SortInput> sortInputList = new List<SortInput>();
             foreach(SortInput row in data)
             {
                 sortInputList.Add(row);
             }
 
+            //Convert the list and output the data
             string output = JsonConvert.SerializeObject(sortInputList);
 
             return output;
