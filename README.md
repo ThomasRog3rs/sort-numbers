@@ -1,5 +1,6 @@
 # Sort Numbers Web App
-This application allows users to input random numbers then will order them for the user and submits the results to a SQL database using EF
+This application allows users to input random numbers then will order them for the user and submit the results to a SQL database using EF.
+This was the technical interview for my Job at [Promtek](https://www.promtek.com)
 
 ## Assumptions
 - The JSON export does not need to automatically download in the browser
